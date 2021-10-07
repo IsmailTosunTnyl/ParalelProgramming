@@ -10,5 +10,5 @@ if __name__ == '__main__':
     e = find_e.throw_points(n)
 
     print("e = %12.7f | counter = %d | N = %d" %
-          (e, find_e.counter, n))
+          (e, find_e.counter, find_e.n))
     print("TIME = %.6f seconds" % (clock.toc()))

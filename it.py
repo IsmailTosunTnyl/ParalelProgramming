@@ -19,11 +19,12 @@ class FindE:
 
     def __init__(self):
         self.counter = 0
+        self.n = 0
 
     def throw_points(self, nn):
 
         for _ in range(nn):
-
+            self.n += 1
             sum = 0
             while True:
                 sum = sum + random.uniform(0, 1)
@@ -31,4 +32,4 @@ class FindE:
                 if sum >= 1:
                     break
 
-        return self.counter/nn
+        return self.counter/self.n
