@@ -1,4 +1,4 @@
-from it import *
+from it_singlethread import *
 from threading import Thread
 
 if __name__ == '__main__':
