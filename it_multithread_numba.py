@@ -1,6 +1,6 @@
 import time
 import random
-
+from numba import jit
 
 
 class TicToc:
@@ -24,14 +24,23 @@ class FindE:
 
     def throw_points(self, nn):
 
+        self.n, self.counter = self.throw_points_static(nn)
+
+
+    @staticmethod
+    @jit
+    def throw_points_static(nn):
+        n = 0
+        counter = 0
         for _ in range(nn):
-            self.n += 1
+            n += 1
             sum = 0
             while True:
                 sum = sum + random.uniform(0, 1)
-                self.counter += 1
+                counter += 1
                 if sum >= 1:
                     break
+        return n, counter
 
     def calculate_e(self):
         return self.counter / self.n

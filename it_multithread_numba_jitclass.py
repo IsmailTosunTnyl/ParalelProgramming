@@ -1,6 +1,7 @@
 import time
 import random
-
+from numba import int32, float32    # import the types
+from numba.experimental import jitclass
 
 
 class TicToc:
@@ -15,7 +16,7 @@ class TicToc:
         self.t2 = time.time()
         return self.t2 - self.t1
 
-
+@jitclass([("counter",int32),("n",int32)])
 class FindE:
 
     def __init__(self):
