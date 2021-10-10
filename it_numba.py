@@ -26,9 +26,8 @@ class FindE:
 
         self.n, self.counter = self.throw_points_static(nn)
 
-
     @staticmethod
-    @jit(nopython=True,nogil=True)
+    @jit
     def throw_points_static(nn):
         n = 0
         counter = 0
@@ -42,5 +41,5 @@ class FindE:
                     break
         return n, counter
 
-    def calculate_e(self):
+    def find_euler(self):
         return self.counter / self.n
