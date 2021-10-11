@@ -28,7 +28,7 @@ class FindE:
             self.n += 1
             sum = 0
             while True:
-                sum = sum + random.uniform(0, 1)
+                sum = sum + random.random()
                 self.counter += 1
                 if sum >= 1:
                     break

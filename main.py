@@ -1,10 +1,12 @@
 from it import *
 
+
 if __name__ == '__main__':
     find_e = FindE()
     clock = TicToc()
 
     n = 100000000
+
 
     clock.tic()
     e = find_e.throw_points(n)

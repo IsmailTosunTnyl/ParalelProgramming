@@ -1,11 +1,13 @@
 from it_singlethread import *
 from threading import Thread
 
+
 if __name__ == '__main__':
     find_e = FindE()
     clock = TicToc()
 
     n = 100000000
+
 
     clock.tic()
     thread = Thread(target=find_e.throw_points, args=(n,))

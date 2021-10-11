@@ -7,7 +7,7 @@ if __name__ == '__main__':
     clock = TicToc()
     clock.tic()
 
-    n = 100000000/12
+    n = 10000000/12
     find_es = []
     threads = []
 

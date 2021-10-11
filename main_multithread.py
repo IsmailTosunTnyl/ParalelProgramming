@@ -2,12 +2,14 @@ from it_multithread import *
 from threading import Thread
 import os
 
+
 if __name__ == '__main__':
 
     clock = TicToc()
     clock.tic()
 
-    n = 100000000
+    n = 1000000
+
     find_es = []
     threads = []
 

@@ -35,7 +35,7 @@ class FindE:
             n += 1
             sum = 0
             while True:
-                sum = sum + random.uniform(0, 1)
+                sum = sum + random.random()
                 counter += 1
                 if sum >= 1:
                     break
