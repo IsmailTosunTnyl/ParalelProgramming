@@ -1,7 +1,7 @@
 from it_numba import *
 
 if __name__ == '__main__':
-    for i in range(3):
+    for _ in range(3):
         find_e = FindE()
         clock = TicToc()
 
