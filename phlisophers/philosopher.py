@@ -2,7 +2,7 @@ class Philosopher():
     eatingCount = 0
     totalMealSize = 0
 
-    def __init__(self, meal_size,lock):
+    def __init__(self, meal_size, lock):
         Philosopher.totalMealSize += meal_size
         self.rightChopstick = " "
         self.leftChopstick = " "
@@ -47,7 +47,7 @@ class Philosopher():
         self.set_eating_status()
 
     def __str__(self):
-        return self.leftChopstick + self.eatingStatus + self.rightChopstick +" meal: "+str(self.mealSize)+" "
+        return self.leftChopstick + self.eatingStatus + self.rightChopstick
 
 
 if __name__ == "__main__":
