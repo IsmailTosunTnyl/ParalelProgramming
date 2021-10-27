@@ -1,5 +1,5 @@
-# ParalelProgramming
+# ParallelProgramming
 Parallel programming for python 
 
-This repository include more than one project and more 
+This repository includes more than one project and more 
 than one versions of same projects
