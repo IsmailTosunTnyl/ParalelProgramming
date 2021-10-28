@@ -6,6 +6,8 @@ from threading import Thread, Lock
 from philosopher import Philosopher
 
 
+# https://github.com/IsmailTosunTnyl/ParallelProgramming
+
 class DiningPhilosophers:
     def __init__(self, number_of_philosopher, meal_size):
 
@@ -38,7 +40,7 @@ class DiningPhilosophers:
                     self.philosophers[i].set_left_chopstick(False)
 
 
-def print_table(philosophers):
+def print_table(philosophers,locked_chopsticks):
     print(f"""
     
               {philosophers[0]}
@@ -52,7 +54,8 @@ def print_table(philosophers):
         {philosophers[3]}           {philosophers[2]}                 
          {philosophers[3].mealSize}            {philosophers[2].mealSize}
          
- Eating Counter: {Philosopher.eatingCount}  Total size of meals left:{Philosopher.totalMealSize}    
+ Eating Counter: {Philosopher.eatingCount}  Total size of meals left:{Philosopher.totalMealSize} 
+             Locked Chopsticks: {locked_chopsticks}   
     """)
 
 
@@ -64,10 +67,15 @@ def main():
     philosophers = [Thread(target=dining_philosophers.philosopher, args=(i,)) for i in range(n)]
     for philosopher in philosophers:
         philosopher.start()
-    while Philosopher.totalMealSize > 0:
-        # print(dining_philosophers.status, str(dining_philosophers.status.count('E')), dining_philosophers.meals)
 
-        print_table(dining_philosophers.philosophers)
+    while Philosopher.totalMealSize > 0:
+
+        locked_chopstick_counter = 0
+        for philosopher in dining_philosophers.philosophers:
+            if philosopher.lock.locked():
+                locked_chopstick_counter += 1
+
+        print_table(dining_philosophers.philosophers,locked_chopstick_counter)
 
         time.sleep(0.1)
         os.system('cls')

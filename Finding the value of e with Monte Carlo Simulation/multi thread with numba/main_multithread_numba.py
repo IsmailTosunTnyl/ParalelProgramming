@@ -2,6 +2,7 @@ from it_multithread_numba import *
 from threading import Thread
 import os
 
+# https://github.com/IsmailTosunTnyl/ParallelProgramming
 if __name__ == '__main__':
     for _ in range(3):
         clock = TicToc()

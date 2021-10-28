@@ -18,6 +18,7 @@ class Philosopher():
             Philosopher.eatingCount -= 1
 
     def set_eating_status(self):
+
         temp_status = self.eatingStatus
         if self.rightChopstick == "-" and self.leftChopstick == "-":
             self.eatingStatus = "E"
