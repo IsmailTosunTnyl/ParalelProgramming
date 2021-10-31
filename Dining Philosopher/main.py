@@ -1,6 +1,7 @@
 import os
 import random
 import time
+from table import Table
 from threading import Thread, Lock
 
 from philosopher import Philosopher
@@ -60,12 +61,30 @@ def print_table(philosophers, locked_chopsticks):
     """)
 
 
-def main():
-    n = 5
-    m = 10
+def table_print(philosophers, main_coordinates, t, locked_chopsticks):
+    table = t.table
+    for i in range(len(philosophers)):
+        table[main_coordinates[i][0]][main_coordinates[i][1]] = philosophers[i].eatingStatus
+        table[main_coordinates[i][0]][main_coordinates[i][1] - 1] = philosophers[i].leftChopstick
+        table[main_coordinates[i][0]][main_coordinates[i][1] + 1] = philosophers[i].rightChopstick
+        table[main_coordinates[i][0] + 1][main_coordinates[i][1]] = str(philosophers[i].mealSize)
 
-    dining_philosophers = DiningPhilosophers(n, m)
-    philosophers = [Thread(target=dining_philosophers.philosopher, args=(i,)) for i in range(n)]
+    for line in table:
+        print(' '.join(line))
+    print(f"""Eating Counter: {Philosopher.eatingCount}  Total size of meals left:{Philosopher.totalMealSize} 
+             Locked Chopsticks: {locked_chopsticks}  """)
+
+
+def main():
+    philosopher_size = int(input("Philosopher size\n"))
+    meal_size_perphilosopher = int(input("Meal size per philosopher\n"))
+
+    dining_philosophers = DiningPhilosophers(philosopher_size, meal_size_perphilosopher)
+    philosophers = [Thread(target=dining_philosophers.philosopher, args=(i,)) for i in range(philosopher_size)]
+
+    t = Table(len(philosophers))
+    main_coordinates = t.choosen_coordinats()
+
     for philosopher in philosophers:
         philosopher.start()
 
@@ -76,7 +95,8 @@ def main():
             if philosopher.lock.locked():
                 locked_chopstick_counter += 1
 
-        print_table(dining_philosophers.philosophers, locked_chopstick_counter)
+        # print_table(dining_philosophers.philosophers, locked_chopstick_counter)
+        table_print(dining_philosophers.philosophers, main_coordinates, t, locked_chopstick_counter)
 
         time.sleep(0.1)
         os.system('cls')

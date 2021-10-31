@@ -6,17 +6,16 @@ class Table:
 
     def __init__(self, ph_count):
         self.ph_count = ph_count
-        self.width = ph_count *2
-        self.height = ph_count *2
-        self.radius = ph_count -1
-        self.center_x = ph_count -1
-        self.center_y = ph_count -1
+        self.width = ph_count * 2
+        self.height = ph_count * 2
+        self.radius = ph_count - 1
+        self.center_x = ph_count - 1
+        self.center_y = ph_count - 1
         self.table = list()
-
 
     def blank_table(self):
 
-        self.table = [['.' for _ in range(self.width)] for _ in range(self.height)]
+        self.table = [[' ' for _ in range(self.width)] for _ in range(self.height)]
         return self.table
 
     def find_coordinates(self):
@@ -67,12 +66,12 @@ class Table:
                                 allocated_coordinates.append([x - 1, y + 1])
                                 allocated_coordinates.append([x - 1, y - 1])
 
-                                self.table[x][y] = '#'
+                                # self.table[x][y] = '#'
                         # table[(len(table[0])-x)][len(table[0][0])-y] = '#'
 
             if len(main_coordinates) == self.ph_count:
                 break
-        print("aloocated", allocated_coordinates)
+
         return main_coordinates
 
 
@@ -83,6 +82,8 @@ if __name__ == "__main__":
     c = Table(ph_count)
     main_coordinates = c.choosen_coordinats()
     table = c.table
+    for c in main_coordinates:
+        table[c[0]][c[1]] = '#'
     print("main", main_coordinates)
 
     for line in table:
