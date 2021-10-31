@@ -99,7 +99,10 @@ def main():
         table_print(dining_philosophers.philosophers, main_coordinates, t, locked_chopstick_counter)
 
         time.sleep(0.1)
+        #clear for windows
         os.system('cls')
+        # clear for linux
+        #os.system('clear')
 
     for philosopher in philosophers:
         philosopher.join()
