@@ -22,7 +22,7 @@ class FindE:
         self.counter = 0
         self.n = 0
 
-    def throw_points(self, nn):
+    def calculate_e(self, nn):
 
         for _ in range(nn):
             self.n += 1
@@ -33,5 +33,3 @@ class FindE:
                 if sum >= 1:
                     break
 
-    def calculate_e(self):
-        return self.counter / self.n

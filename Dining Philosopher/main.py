@@ -6,6 +6,7 @@ from threading import Thread, Lock
 from philosopher import Philosopher
 
 
+# check github for latest version
 # https://github.com/IsmailTosunTnyl/ParallelProgramming
 
 class DiningPhilosophers:
@@ -40,7 +41,7 @@ class DiningPhilosophers:
                     self.philosophers[i].set_left_chopstick(False)
 
 
-def print_table(philosophers,locked_chopsticks):
+def print_table(philosophers, locked_chopsticks):
     print(f"""
     
               {philosophers[0]}
@@ -75,7 +76,7 @@ def main():
             if philosopher.lock.locked():
                 locked_chopstick_counter += 1
 
-        print_table(dining_philosophers.philosophers,locked_chopstick_counter)
+        print_table(dining_philosophers.philosophers, locked_chopstick_counter)
 
         time.sleep(0.1)
         os.system('cls')

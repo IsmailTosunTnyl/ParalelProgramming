@@ -21,7 +21,7 @@ class FindE:
         self.counter = 0
         self.n = 0
 
-    def throw_points(self, nn):
+    def calculate_e(self, nn):
 
         for _ in range(nn):
             self.n += 1

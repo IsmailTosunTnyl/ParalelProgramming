@@ -1,5 +1,7 @@
 from it import *
 
+# check github for latest version
+# https://github.com/IsmailTosunTnyl/ParallelProgramming
 
 if __name__ == '__main__':
     find_e = FindE()
@@ -7,9 +9,8 @@ if __name__ == '__main__':
 
     n = 100000000
 
-
     clock.tic()
-    e = find_e.throw_points(n)
+    e = find_e.calculate_e(n)
 
     print("e = %12.7f | counter = %d | N = %d" %
           (e, find_e.counter, find_e.n))

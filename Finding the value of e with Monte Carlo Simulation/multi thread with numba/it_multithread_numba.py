@@ -22,14 +22,14 @@ class FindE:
         self.counter = 0
         self.n = 0
 
-    def throw_points(self, nn):
+    def calculate_e(self, nn):
 
-        self.n, self.counter = self.throw_points_static(nn)
+        self.n, self.counter = self.calculate_e_static(nn)
 
 
     @staticmethod
     @jit(nopython=True,nogil=True)
-    def throw_points_static(nn):
+    def calculate_e_static(nn):
         n = 0
         counter = 0
         for _ in range(nn):
@@ -42,5 +42,4 @@ class FindE:
                     break
         return n, counter
 
-    def calculate_e(self):
-        return self.counter / self.n
+

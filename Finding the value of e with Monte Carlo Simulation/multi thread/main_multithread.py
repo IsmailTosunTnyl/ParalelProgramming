@@ -2,6 +2,8 @@ from it_multithread import *
 from threading import Thread
 import os
 
+# check github for latest version
+# https://github.com/IsmailTosunTnyl/ParallelProgramming
 
 if __name__ == '__main__':
 
@@ -15,7 +17,7 @@ if __name__ == '__main__':
 
     for i in range(os.cpu_count()):
         find_es.append(FindE())
-        threads.append(Thread(target=find_es[i].throw_points, args=(n,)))
+        threads.append(Thread(target=find_es[i].calculate_e, args=(n,)))
 
     for thread in threads:
         thread.start()
