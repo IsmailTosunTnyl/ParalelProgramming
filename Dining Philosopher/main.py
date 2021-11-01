@@ -18,7 +18,7 @@ class DiningPhilosophers:
     def philosopher(self, i):
         while self.philosophers[i].mealSize > 0:
 
-            j = (i + 1) % 5
+            j = (i + 1) % len(self.philosophers)
 
             time.sleep(random.random())
             if not self.philosophers[i].lock.locked():
